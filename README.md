@@ -6,6 +6,7 @@ You can download ev3b file to import this block：[Release Page](https://github.
 What’s EV3-AdvMotorControllers-Block？
 
 WRO’s robots are quite “fast, ruthless and accurate”, so how to accurately control the robot is an important topic. Obviously, the built-in functions in EV3-G are far from enough for us to use.
+![](https://www.tecnonews.info/files/3-10397-fotoArticulo/Captura%20de%20pantalla%202018-11-24%20a%20las%201.13.30.png)
 So we have developed 5 movement blocks for the WRO Regular (Of course FLL、RCJ or any other competition can use it).
 They are “PD Controller”, “Synchronous Movement Controller”, and “Acceleration-Deceleration Controller” 😍
 Due to working at a lower level than my blocks, so the program is more fast and accurate.😁
