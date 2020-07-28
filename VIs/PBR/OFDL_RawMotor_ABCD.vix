@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SourceFile Version="1.0.2.10" xmlns="http://www.ni.com/SourceModel.xsd">
+    <Namespace Name="Project">
+        <VirtualInstrument IsTopLevel="false" IsReentrant="false" Version="1.0.2.0" xmlns="http://www.ni.com/VirtualInstrument.xsd">
+            <DataItem Name="SequenceIn" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Input" CallIndex="4" />
+            <DataItem Name="SequenceOut" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" DefaultTerminalDirection="Input" CallUsage="None" CallDirection="Output" CallIndex="4" />
+            <DataItem Name="PowerA" DataType="Single" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Input" CallIndex="0" DefaultValue="50" />
+            <DataItem Name="PowerB" DataType="Single" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Input" CallIndex="1" DefaultValue="50" />
+            <DataItem Name="PowerC" DataType="Single" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Input" CallIndex="2" DefaultValue="50" />
+            <DataItem Name="PowerD" DataType="Single" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Input" CallIndex="3" DefaultValue="50" />
+            <FrontPanel>
+                <fpruntime:FrontPanelCanvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:fpruntime="clr-namespace:NationalInstruments.LabVIEW.FrontPanelRuntime;assembly=NationalInstruments.LabVIEW.FrontPanelRuntime" xmlns:Model0="clr-namespace:NationalInstruments.SourceModel.Designer;assembly=NationalInstruments.SourceModel" x:Name="FrontPanel" Model0:DesignerSurfaceProperties.CanSnapToObjects="True" Model0:DesignerSurfaceProperties.SnapToObjects="True" Model0:DesignerSurfaceProperties.ShowSnaplines="True" Model0:DesignerSurfaceProperties.ShowControlAdorners="True" Width="640" Height="480" />
+            </FrontPanel>
+            <BlockDiagram Name="__RootDiagram__">
+                <Wire Id="w23" Joints="N(n7:Value) N(b14:n1)" />
+                <Wire Id="w17" Joints="N(n14:Out) N(b12:n1)" />
+                <FlatSequence Id="n1" Bounds="616 98 287 140">
+                    <FlatSequence.Frame Id="D2" Bounds="7 7 126 126">
+                        <MethodCall Id="n4" Bounds="56 42 28 42" Target="X3\.Lib:PBrickOutputPower">
+                            <Terminal Id="layer" Direction="Input" Wire="w2" DataType="Byte" Hotspot="0 0.5" Bounds="0 0 14 14" />
+                            <Terminal Id="nos" Direction="Input" Wire="w6" DataType="Byte" Hotspot="0 0.5" Bounds="0 14 14 14" />
+                            <Terminal Id="power" Direction="Input" Wire="w7" DataType="SByte" Hotspot="0 0.5" Bounds="0 28 14 14" />
+                        </MethodCall>
+                        <Wire Id="w2" Joints="N(b9:D2) h(19) v(-14) N(b10:D2) B(1) N(n4:layer)" />
+                        <Wire Id="w6" Joints="N(b12:D2) h(17) v(21) N(b13:D2) B(1) v(-7) N(n4:nos)" />
+                        <Wire Id="w7" Joints="N(b14:D2) h(28) v(-21) N(n4:power)" />
+                    </FlatSequence.Frame>
+                    <FlatSequence.Frame Id="D3" Bounds="140 7 140 126">
+                        <MethodCall Id="n5" Bounds="70 49 28 28" Target="X3\.Lib:PBrickOutputStart">
+                            <Terminal Id="layer" Direction="Input" Wire="w3" DataType="Byte" Hotspot="0 0.5" Bounds="0 0 14 14" />
+                            <Terminal Id="nos" Direction="Input" Wire="w7" DataType="Byte" Hotspot="0 0.5" Bounds="0 14 14 14" />
+                        </MethodCall>
+                        <Wire Id="w3" Joints="N(b10:D3) h(3.5) v(21) N(n5:layer)" />
+                        <Wire Id="w7" Joints="N(b13:D3) h(10.5) v(-21) N(n5:nos)" />
+                    </FlatSequence.Frame>
+                    <FlatSequence.Tunnel Id="b9" Terminals="n1=w45, D2=w2" TopLeft="0 49" />
+                    <FlatSequence.Tunnel Id="b10" Terminals="D3=w3, D2=w2" TopLeft="129.5 35" />
+                    <FlatSequence.Tunnel Id="b12" Terminals="n1=w17, D2=w6" TopLeft="0 70" />
+                    <FlatSequence.Tunnel Id="b14" Terminals="n1=w23, D2=w7" TopLeft="0 98" />
+                    <FlatSequence.Tunnel Id="b13" Terminals="D3=w7, D2=w6" TopLeft="129.5 91" />
+                </FlatSequence>
+                <DataAccessor DataItem="PowerA" Id="n7" Bounds="511 196 70 14">
+                    <Terminal Id="Value" Direction="Output" Wire="w23" Hotspot="1 0.5" Bounds="0 0 70 14" />
+                </DataAccessor>
+                <Literal Id="n13" Terminals="Out=w45" Bounds="434 147 28 14" Interpretation="Exact" DataType="SByte">0</Literal>
+                <Literal Id="n14" Terminals="Out=w17" Bounds="567 168 28 14" Interpretation="Exact" DataType="SByte">1</Literal>
+                <Wire Id="w16" Joints="N(n26:Value) N(b21:n18)" />
+                <Wire Id="w18" Joints="N(n28:Out) N(b20:n18)" />
+                <FlatSequence Id="n18" Bounds="616 287 287 140">
+                    <FlatSequence.Frame Id="D24" Bounds="7 7 126 126">
+                        <MethodCall Id="n4" Bounds="56 42 28 42" Target="X3\.Lib:PBrickOutputPower">
+                            <Terminal Id="layer" Direction="Input" Wire="w2" DataType="Byte" Hotspot="0 0.5" Bounds="0 0 14 14" />
+                            <Terminal Id="nos" Direction="Input" Wire="w6" DataType="Byte" Hotspot="0 0.5" Bounds="0 14 14 14" />
+                            <Terminal Id="power" Direction="Input" Wire="w7" DataType="SByte" Hotspot="0 0.5" Bounds="0 28 14 14" />
+                        </MethodCall>
+                        <Wire Id="w2" Joints="N(b18:D24) h(19) N(n4:layer) B(1) v(-14) N(b19:D24)" />
+                        <Wire Id="w6" Joints="N(b20:D24) h(17) v(-7) N(n4:nos) B(1) v(21) N(b22:D24)" />
+                        <Wire Id="w7" Joints="N(b21:D24) h(28) v(-21) N(n4:power)" />
+                    </FlatSequence.Frame>
+                    <FlatSequence.Frame Id="D25" Bounds="140 7 140 126">
+                        <MethodCall Id="n5" Bounds="70 49 28 28" Target="X3\.Lib:PBrickOutputStart">
+                            <Terminal Id="layer" Direction="Input" Wire="w3" DataType="Byte" Hotspot="0 0.5" Bounds="0 0 14 14" />
+                            <Terminal Id="nos" Direction="Input" Wire="w7" DataType="Byte" Hotspot="0 0.5" Bounds="0 14 14 14" />
+                        </MethodCall>
+                        <Wire Id="w3" Joints="N(b19:D25) h(3.5) v(21) N(n5:layer)" />
+                        <Wire Id="w7" Joints="N(b22:D25) h(10.5) v(-21) N(n5:nos)" />
+                    </FlatSequence.Frame>
+                    <FlatSequence.Tunnel Id="b18" Terminals="n18=w45, D24=w2" TopLeft="0 49" />
+                    <FlatSequence.Tunnel Id="b19" Terminals="D25=w3, D24=w2" TopLeft="129.5 35" />
+                    <FlatSequence.Tunnel Id="b20" Terminals="n18=w18, D24=w6" TopLeft="0 70" />
+                    <FlatSequence.Tunnel Id="b21" Terminals="n18=w16, D24=w7" TopLeft="0 98" />
+                    <FlatSequence.Tunnel Id="b22" Terminals="D25=w7, D24=w6" TopLeft="129.5 91" />
+                </FlatSequence>
+                <DataAccessor DataItem="PowerB" Id="n26" Bounds="511 385 70 14">
+                    <Terminal Id="Value" Direction="Output" Wire="w16" Hotspot="1 0.5" Bounds="0 0 70 14" />
+                </DataAccessor>
+                <Literal Id="n28" Terminals="Out=w18" Bounds="567 357 28 14" Interpretation="Exact" DataType="SByte">2</Literal>
+                <Wire Id="w29" Joints="N(n40:Value) N(b35:n32)" />
+                <Wire Id="w30" Joints="N(n42:Out) N(b34:n32)" />
+                <FlatSequence Id="n32" Bounds="616 483 287 140">
+                    <FlatSequence.Frame Id="D38" Bounds="7 7 126 126">
+                        <MethodCall Id="n4" Bounds="56 42 28 42" Target="X3\.Lib:PBrickOutputPower">
+                            <Terminal Id="layer" Direction="Input" Wire="w2" DataType="Byte" Hotspot="0 0.5" Bounds="0 0 14 14" />
+                            <Terminal Id="nos" Direction="Input" Wire="w6" DataType="Byte" Hotspot="0 0.5" Bounds="0 14 14 14" />
+                            <Terminal Id="power" Direction="Input" Wire="w7" DataType="SByte" Hotspot="0 0.5" Bounds="0 28 14 14" />
+                        </MethodCall>
+                        <Wire Id="w2" Joints="N(b32:D38) h(19) N(n4:layer) B(1) v(-14) N(b33:D38)" />
+                        <Wire Id="w6" Joints="N(b34:D38) h(17) v(-7) N(n4:nos) B(1) v(21) N(b36:D38)" />
+                        <Wire Id="w7" Joints="N(b35:D38) h(28) v(-21) N(n4:power)" />
+                    </FlatSequence.Frame>
+                    <FlatSequence.Frame Id="D39" Bounds="140 7 140 126">
+                        <MethodCall Id="n5" Bounds="70 49 28 28" Target="X3\.Lib:PBrickOutputStart">
+                            <Terminal Id="layer" Direction="Input" Wire="w3" DataType="Byte" Hotspot="0 0.5" Bounds="0 0 14 14" />
+                            <Terminal Id="nos" Direction="Input" Wire="w7" DataType="Byte" Hotspot="0 0.5" Bounds="0 14 14 14" />
+                        </MethodCall>
+                        <Wire Id="w3" Joints="N(b33:D39) h(3.5) v(21) N(n5:layer)" />
+                        <Wire Id="w7" Joints="N(b36:D39) h(10.5) v(-21) N(n5:nos)" />
+                    </FlatSequence.Frame>
+                    <FlatSequence.Tunnel Id="b32" Terminals="n32=w45, D38=w2" TopLeft="0 49" />
+                    <FlatSequence.Tunnel Id="b33" Terminals="D39=w3, D38=w2" TopLeft="129.5 35" />
+                    <FlatSequence.Tunnel Id="b34" Terminals="n32=w30, D38=w6" TopLeft="0 70" />
+                    <FlatSequence.Tunnel Id="b35" Terminals="n32=w29, D38=w7" TopLeft="0 98" />
+                    <FlatSequence.Tunnel Id="b36" Terminals="D39=w7, D38=w6" TopLeft="129.5 91" />
+                </FlatSequence>
+                <DataAccessor DataItem="PowerC" Id="n40" Bounds="511 581 70 14">
+                    <Terminal Id="Value" Direction="Output" Wire="w29" Hotspot="1 0.5" Bounds="0 0 70 14" />
+                </DataAccessor>
+                <Literal Id="n42" Terminals="Out=w30" Bounds="560 553 28 14" Interpretation="Exact" DataType="SByte">4</Literal>
+                <Wire Id="w43" Joints="N(n54:Value) N(b49:n46)" />
+                <Wire Id="w44" Joints="N(n56:Out) N(b48:n46)" />
+                <Wire Id="w45" Joints="N(n13:Out) h(23.8) N(b9:n1) B(1) v(189) N(b18:n18) B(3) v(196) h(1.6) v(203) N(b46:n46) B(6) N(b32:n32)" />
+                <FlatSequence Id="n46" Bounds="616 686 287 140">
+                    <FlatSequence.Frame Id="D52" Bounds="7 7 126 126">
+                        <MethodCall Id="n4" Bounds="56 42 28 42" Target="X3\.Lib:PBrickOutputPower">
+                            <Terminal Id="layer" Direction="Input" Wire="w2" DataType="Byte" Hotspot="0 0.5" Bounds="0 0 14 14" />
+                            <Terminal Id="nos" Direction="Input" Wire="w6" DataType="Byte" Hotspot="0 0.5" Bounds="0 14 14 14" />
+                            <Terminal Id="power" Direction="Input" Wire="w7" DataType="SByte" Hotspot="0 0.5" Bounds="0 28 14 14" />
+                        </MethodCall>
+                        <Wire Id="w2" Joints="N(b46:D52) h(19) N(n4:layer) B(1) v(-14) N(b47:D52)" />
+                        <Wire Id="w6" Joints="N(b48:D52) h(17) v(-7) N(n4:nos) B(1) v(21) N(b50:D52)" />
+                        <Wire Id="w7" Joints="N(b49:D52) h(28) v(-21) N(n4:power)" />
+                    </FlatSequence.Frame>
+                    <FlatSequence.Frame Id="D53" Bounds="140 7 140 126">
+                        <MethodCall Id="n5" Bounds="70 49 28 28" Target="X3\.Lib:PBrickOutputStart">
+                            <Terminal Id="layer" Direction="Input" Wire="w3" DataType="Byte" Hotspot="0 0.5" Bounds="0 0 14 14" />
+                            <Terminal Id="nos" Direction="Input" Wire="w7" DataType="Byte" Hotspot="0 0.5" Bounds="0 14 14 14" />
+                        </MethodCall>
+                        <Wire Id="w3" Joints="N(b47:D53) h(3.5) v(21) N(n5:layer)" />
+                        <Wire Id="w7" Joints="N(b50:D53) h(10.5) v(-21) N(n5:nos)" />
+                    </FlatSequence.Frame>
+                    <FlatSequence.Tunnel Id="b46" Terminals="n46=w45, D52=w2" TopLeft="0 49" />
+                    <FlatSequence.Tunnel Id="b47" Terminals="D53=w3, D52=w2" TopLeft="129.5 35" />
+                    <FlatSequence.Tunnel Id="b48" Terminals="n46=w44, D52=w6" TopLeft="0 70" />
+                    <FlatSequence.Tunnel Id="b49" Terminals="n46=w43, D52=w7" TopLeft="0 98" />
+                    <FlatSequence.Tunnel Id="b50" Terminals="D53=w7, D52=w6" TopLeft="129.5 91" />
+                </FlatSequence>
+                <DataAccessor DataItem="PowerD" Id="n54" Bounds="511 784 70 14">
+                    <Terminal Id="Value" Direction="Output" Wire="w43" Hotspot="1 0.5" Bounds="0 0 70 14" />
+                </DataAccessor>
+                <Literal Id="n56" Terminals="Out=w44" Bounds="567 756 28 14" Interpretation="Exact" DataType="SByte">8</Literal>
+            </BlockDiagram>
+            <Icon>
+                <Model:IconPanel xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:Model="clr-namespace:NationalInstruments.LabVIEW.VI.Design;assembly=NationalInstruments.LabVIEW.VI.SourceModel" xmlns:fpruntime="clr-namespace:NationalInstruments.LabVIEW.FrontPanelRuntime;assembly=NationalInstruments.LabVIEW.FrontPanelRuntime" xmlns:ation="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Height="70" Width="56">
+                    <fpruntime:AnimationProperties.Animations>
+                        <fpruntime:AnimationsContainer />
+                    </fpruntime:AnimationProperties.Animations>
+                    <fpruntime:EventProperties.Events>
+                        <fpruntime:EventContainer />
+                    </fpruntime:EventProperties.Events>
+                    <Model:IconPanel.Background>
+                        <ation:LinearGradientBrush ation:StartPoint="0.5, 0" ation:EndPoint="0.5, 1">
+                            <ation:GradientStop ation:Color="#FFF6F5C6" />
+                            <ation:GradientStop ation:Color="#FFFFFFFE" ation:Offset="0.25" />
+                            <ation:GradientStop ation:Color="#FFF6F5C6" ation:Offset="1" />
+                            <ation:LinearGradientBrush.Transform>
+                                <ation:MatrixTransform />
+                            </ation:LinearGradientBrush.Transform>
+                            <ation:LinearGradientBrush.RelativeTransform>
+                                <ation:MatrixTransform />
+                            </ation:LinearGradientBrush.RelativeTransform>
+                        </ation:LinearGradientBrush>
+                    </Model:IconPanel.Background>
+                    <ation:Rectangle x:Name="Template" Width="NaN" Height="NaN" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0, 13, 0, 0" ation:Grid.Row="0" ation:Grid.Column="0" ation:Grid.RowSpan="1" ation:Grid.ColumnSpan="1" Fill="#00FFFFFF" Stroke="#FF000000" StrokeThickness="1" RadiusX="0" RadiusY="0">
+                        <fpruntime:AnimationProperties.Animations>
+                            <fpruntime:AnimationsContainer />
+                        </fpruntime:AnimationProperties.Animations>
+                        <fpruntime:EventProperties.Events>
+                            <fpruntime:EventContainer />
+                        </fpruntime:EventProperties.Events>
+                    </ation:Rectangle>
+                    <ation:Rectangle x:Name="Template2" Width="NaN" Height="14" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0" ation:Grid.Row="0" ation:Grid.Column="0" ation:Grid.RowSpan="1" ation:Grid.ColumnSpan="1" Stroke="#FF000000" StrokeThickness="1" RadiusX="0" RadiusY="0">
+                        <fpruntime:AnimationProperties.Animations>
+                            <fpruntime:AnimationsContainer />
+                        </fpruntime:AnimationProperties.Animations>
+                        <fpruntime:EventProperties.Events>
+                            <fpruntime:EventContainer />
+                        </fpruntime:EventProperties.Events>
+                        <ation:Rectangle.Fill>
+                            <ation:LinearGradientBrush ation:StartPoint="0.5, 0" ation:EndPoint="0.5, 1">
+                                <ation:GradientStop ation:Color="#FFFFFFFF" />
+                                <ation:GradientStop ation:Color="#FFD5EAEA" ation:Offset="1" />
+                                <ation:LinearGradientBrush.Transform>
+                                    <ation:MatrixTransform />
+                                </ation:LinearGradientBrush.Transform>
+                                <ation:LinearGradientBrush.RelativeTransform>
+                                    <ation:MatrixTransform />
+                                </ation:LinearGradientBrush.RelativeTransform>
+                            </ation:LinearGradientBrush>
+                        </ation:Rectangle.Fill>
+                    </ation:Rectangle>
+                    <ation:TextBlock x:Name="Template3" Width="NaN" Height="NaN" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0, -0.100000001490116, 0, 0" ation:Grid.Row="0" ation:Grid.Column="0" ation:Grid.RowSpan="1" ation:Grid.ColumnSpan="1" Text="SubVI" FontFamily="Portable User Interface" FontSize="10" FontWeight="Normal" Foreground="#FF000000">
+                        <fpruntime:AnimationProperties.Animations>
+                            <fpruntime:AnimationsContainer />
+                        </fpruntime:AnimationProperties.Animations>
+                        <fpruntime:EventProperties.Events>
+                            <fpruntime:EventContainer />
+                        </fpruntime:EventProperties.Events>
+                    </ation:TextBlock>
+                </Model:IconPanel>
+            </Icon>
+        </VirtualInstrument>
+    </Namespace>
+</SourceFile>

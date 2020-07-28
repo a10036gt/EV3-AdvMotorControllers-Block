@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SourceFile Version="1.0.2.10" xmlns="http://www.ni.com/SourceModel.xsd">
+    <Namespace Name="Project">
+        <VirtualInstrument IsTopLevel="false" IsReentrant="false" Version="1.0.2.0" xmlns="http://www.ni.com/VirtualInstrument.xsd">
+            <DataItem Name="SequenceIn" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Input" CallIndex="1" />
+            <DataItem Name="SequenceOut" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" DefaultTerminalDirection="Input" CallUsage="None" CallDirection="Output" CallIndex="4" />
+            <FrontPanel>
+                <fpruntime:FrontPanelCanvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:fpruntime="clr-namespace:NationalInstruments.LabVIEW.FrontPanelRuntime;assembly=NationalInstruments.LabVIEW.FrontPanelRuntime" xmlns:Model="clr-namespace:NationalInstruments.SourceModel.Designer;assembly=NationalInstruments.SourceModel" x:Name="FrontPanel" Model:DesignerSurfaceProperties.CanSnapToObjects="True" Model:DesignerSurfaceProperties.SnapToObjects="True" Model:DesignerSurfaceProperties.ShowSnaplines="True" Model:DesignerSurfaceProperties.ShowControlAdorners="True" Width="640" Height="480" />
+            </FrontPanel>
+            <BlockDiagram Name="__RootDiagram__">
+                <Wire Id="w6" Joints="N(n13:Out) N(n17:layer)" />
+                <Wire Id="w9" Joints="N(n8:Out) N(n17:type)" />
+                <Wire Id="w11" Joints="N(n10:Out) N(n17:Mode)" />
+                <Wire Id="w13" Joints="N(n12:Out) N(n17:ValueCount)" />
+                <Wire Id="w19" Joints="N(n19:Out) N(n17:port)" />
+                <MethodCall Id="n17" Bounds="588 308 28 70" Target="X3\.Lib:PBrickInputReadySI">
+                    <Terminal Id="layer" Direction="Input" Wire="w6" DataType="SByte" Hotspot="0 0.5" Bounds="0 0 14 14" />
+                    <Terminal Id="port" Direction="Input" Wire="w19" DataType="SByte" Hotspot="0 0.5" Bounds="0 14 14 14" />
+                    <Terminal Id="type" Direction="Input" Wire="w9" DataType="SByte" Hotspot="0 0.5" Bounds="0 28 14 14" />
+                    <Terminal Id="Mode" Direction="Input" Wire="w11" DataType="SByte" Hotspot="0 0.5" Bounds="0 42 14 14" />
+                    <Terminal Id="ValueCount" Direction="Input" Wire="w13" DataType="SByte" Hotspot="0 0.5" Bounds="0 56 14 14" />
+                    <Terminal Id="Value" Direction="Output" Wire="w14" DataType="Single" Hotspot="1 0.5" Bounds="14 0 14 14" />
+                </MethodCall>
+                <Literal Id="n8" Terminals="Out=w9" Bounds="539 336 28 14" Interpretation="Exact" DataType="Byte">0</Literal>
+                <Literal Id="n10" Terminals="Out=w11" Bounds="539 350 28 14" Interpretation="Exact" DataType="Byte">0</Literal>
+                <Literal Id="n12" Terminals="Out=w13" Bounds="539 364 28 14" Interpretation="Exact" DataType="Byte">1</Literal>
+                <Literal Id="n19" Terminals="Out=w19" Bounds="539 322 28 14" Interpretation="Exact" DataType="SByte">16</Literal>
+                <Literal Id="n13" Terminals="Out=w6" Bounds="539 308 28 14" Interpretation="Exact" DataType="SByte">0</Literal>
+                <ConfigurableMethodCall Id="n18" Bounds="735 224 101 91" Target="X3\.Lib:GlobalSetSingle">
+                    <ConfigurableMethodTerminal ConfiguredValue="OFDL_AdvEnc_lastA">
+                        <Terminal Id="name" Direction="Input" DataType="String" Hotspot="0.5 1" Bounds="0 0 0 0" />
+                    </ConfigurableMethodTerminal>
+                    <ConfigurableMethodTerminal ConfiguredValue="0">
+                        <Terminal Id="valueIn" Direction="Input" Wire="w14" DataType="Single" Hotspot="0 0.5" Bounds="0 47 14 14" />
+                    </ConfigurableMethodTerminal>
+                    <ConfigurableMethodTerminal ConfiguredValue="0">
+                        <Terminal Id="InterruptsToListenFor_16B03592_CD76_4D58_8DC3_E3C3091E327A" Direction="Input" DataType="Int32" Hotspot="0 0.5" Bounds="0 14 14 14" />
+                    </ConfigurableMethodTerminal>
+                    <Terminal Id="SequenceIn" Direction="Input" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" Hotspot="0 0.5" Bounds="0 33 18 18" />
+                    <Terminal Id="SequenceOut" Direction="Output" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" Hotspot="1 0.5" Bounds="83 33 18 18" />
+                </ConfigurableMethodCall>
+                <Wire Id="w14" Joints="N(n17:Value) h(84) v(-37) N(n18:valueIn)" />
+            </BlockDiagram>
+            <Icon>
+                <Model0:IconPanel xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:Model0="clr-namespace:NationalInstruments.LabVIEW.VI.Design;assembly=NationalInstruments.LabVIEW.VI.SourceModel" xmlns:fpruntime="clr-namespace:NationalInstruments.LabVIEW.FrontPanelRuntime;assembly=NationalInstruments.LabVIEW.FrontPanelRuntime" xmlns:ation="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Height="112" Width="56">
+                    <fpruntime:AnimationProperties.Animations>
+                        <fpruntime:AnimationsContainer />
+                    </fpruntime:AnimationProperties.Animations>
+                    <fpruntime:EventProperties.Events>
+                        <fpruntime:EventContainer />
+                    </fpruntime:EventProperties.Events>
+                    <Model0:IconPanel.Background>
+                        <ation:LinearGradientBrush StartPoint="0.5, 0" EndPoint="0.5, 1">
+                            <ation:LinearGradientBrush.Transform>
+                                <ation:MatrixTransform />
+                            </ation:LinearGradientBrush.Transform>
+                            <ation:LinearGradientBrush.RelativeTransform>
+                                <ation:MatrixTransform />
+                            </ation:LinearGradientBrush.RelativeTransform>
+                            <ation:GradientStop Color="#FFF6F5C6" />
+                            <ation:GradientStop Color="#FFFFFFFE" Offset="0.25" />
+                            <ation:GradientStop Color="#FFF6F5C6" Offset="1" />
+                        </ation:LinearGradientBrush>
+                    </Model0:IconPanel.Background>
+                    <ation:Rectangle x:Name="Template" Width="NaN" Height="NaN" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0, 13, 0, -0.400009155273438" ation:Grid.Row="0" ation:Grid.Column="0" ation:Grid.RowSpan="1" ation:Grid.ColumnSpan="1" Fill="#00FFFFFF" Stroke="#FF000000" StrokeThickness="1" RadiusX="0" RadiusY="0">
+                        <fpruntime:AnimationProperties.Animations>
+                            <fpruntime:AnimationsContainer />
+                        </fpruntime:AnimationProperties.Animations>
+                        <fpruntime:EventProperties.Events>
+                            <fpruntime:EventContainer />
+                        </fpruntime:EventProperties.Events>
+                    </ation:Rectangle>
+                    <ation:Rectangle x:Name="Template2" Width="NaN" Height="14" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0" ation:Grid.Row="0" ation:Grid.Column="0" ation:Grid.RowSpan="1" ation:Grid.ColumnSpan="1" Stroke="#FF000000" StrokeThickness="1" RadiusX="0" RadiusY="0">
+                        <fpruntime:AnimationProperties.Animations>
+                            <fpruntime:AnimationsContainer />
+                        </fpruntime:AnimationProperties.Animations>
+                        <fpruntime:EventProperties.Events>
+                            <fpruntime:EventContainer />
+                        </fpruntime:EventProperties.Events>
+                        <ation:Rectangle.Fill>
+                            <ation:LinearGradientBrush StartPoint="0.5, 0" EndPoint="0.5, 1">
+                                <ation:LinearGradientBrush.Transform>
+                                    <ation:MatrixTransform />
+                                </ation:LinearGradientBrush.Transform>
+                                <ation:LinearGradientBrush.RelativeTransform>
+                                    <ation:MatrixTransform />
+                                </ation:LinearGradientBrush.RelativeTransform>
+                                <ation:GradientStop Color="#FFFFFFFF" />
+                                <ation:GradientStop Color="#FFD5EAEA" Offset="1" />
+                            </ation:LinearGradientBrush>
+                        </ation:Rectangle.Fill>
+                    </ation:Rectangle>
+                    <ation:TextBlock x:Name="Template3" Width="NaN" Height="NaN" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0, -0.100000001490116, 0, 0" ation:Grid.Row="0" ation:Grid.Column="0" ation:Grid.RowSpan="1" ation:Grid.ColumnSpan="1" Text="SubVI" FontFamily="Portable User Interface" FontSize="10" FontWeight="Normal" Foreground="#FF000000">
+                        <fpruntime:AnimationProperties.Animations>
+                            <fpruntime:AnimationsContainer />
+                        </fpruntime:AnimationProperties.Animations>
+                        <fpruntime:EventProperties.Events>
+                            <fpruntime:EventContainer />
+                        </fpruntime:EventProperties.Events>
+                    </ation:TextBlock>
+                </Model0:IconPanel>
+            </Icon>
+        </VirtualInstrument>
+    </Namespace>
+</SourceFile>

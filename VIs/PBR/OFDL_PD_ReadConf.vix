@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SourceFile Version="1.0.2.10" xmlns="http://www.ni.com/SourceModel.xsd">
+    <Namespace Name="Project">
+        <VirtualInstrument IsTopLevel="false" IsReentrant="false" Version="1.0.2.0" xmlns="http://www.ni.com/VirtualInstrument.xsd">
+            <DataItem Name="SequenceIn" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Input" CallIndex="7" />
+            <DataItem Name="SequenceOut" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" DefaultTerminalDirection="Input" CallUsage="None" CallDirection="Output" CallIndex="7" />
+            <DataItem Name="Kp" DataType="Single" DefaultTerminalDirection="Output" CallUsage="Optional" CallDirection="Output" CallIndex="0" />
+            <DataItem Name="Kd" DataType="Single" DefaultTerminalDirection="Output" CallUsage="Optional" CallDirection="Output" CallIndex="1" />
+            <DataItem Name="Power" DataType="Single" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Output" CallIndex="2" />
+            <DataItem Name="LeftPort" DataType="Single" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Output" CallIndex="3" />
+            <DataItem Name="RightPort" DataType="Single" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Output" CallIndex="4" />
+            <FrontPanel>
+                <fpruntime:FrontPanelCanvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:fpruntime="clr-namespace:NationalInstruments.LabVIEW.FrontPanelRuntime;assembly=NationalInstruments.LabVIEW.FrontPanelRuntime" xmlns:Model0="clr-namespace:NationalInstruments.SourceModel.Designer;assembly=NationalInstruments.SourceModel" x:Name="FrontPanel" Model0:DesignerSurfaceProperties.CanSnapToObjects="True" Model0:DesignerSurfaceProperties.SnapToObjects="True" Model0:DesignerSurfaceProperties.ShowSnaplines="True" Model0:DesignerSurfaceProperties.ShowControlAdorners="True" Width="640" Height="480" />
+            </FrontPanel>
+            <BlockDiagram Name="__RootDiagram__">
+                <Comment Bounds="1015 259 217 189" SizeMode="User" AttachStyle="Free">
+                    <Content>Data : PD Controller
+Var   : OFDLPD_funcs
+
+Kp
+Kd
+RM
+LM
+RMRV
+LMLV
+PWR
+
+2020.06.25
+</Content>
+                </Comment>
+                <DataAccessor DataItem="Kp" Id="n10" Bounds="1155 203 70 14">
+                    <Terminal Id="Numeric" Direction="Input" Wire="w19" Hotspot="0 0.5" Bounds="0 0 70 14" />
+                </DataAccessor>
+                <DataAccessor DataItem="Kd" Id="n11" Bounds="1309 203 70 14">
+                    <Terminal Id="Numeric" Direction="Input" Wire="w21" Hotspot="0 0.5" Bounds="0 0 70 14" />
+                </DataAccessor>
+                <DataAccessor DataItem="Power" Id="n12" Bounds="1526 203 70 14">
+                    <Terminal Id="Numeric" Direction="Input" Wire="w17" Hotspot="0 0.5" Bounds="0 0 70 14" />
+                </DataAccessor>
+                <DataAccessor DataItem="LeftPort" Id="n7" Bounds="1722 196 77 14">
+                    <Terminal Id="Numeric" Direction="Input" Wire="w13" Hotspot="0 0.5" Bounds="0 0 77 14" />
+                </DataAccessor>
+                <DataAccessor DataItem="RightPort" Id="n8" Bounds="1918 196 84 14">
+                    <Terminal Id="Numeric" Direction="Input" Wire="w15" Hotspot="0 0.5" Bounds="0 0 84 14" />
+                </DataAccessor>
+                <ConfigurableMethodCall Id="n4" Bounds="1624 98 101 91" Target="X3\.Lib:GlobalGetSingle">
+                    <ConfigurableMethodTerminal>
+                        <Terminal Id="valueOut" Direction="Output" Wire="w13" DataType="Single" Hotspot="0.5 1" Bounds="54 56 30 27" />
+                    </ConfigurableMethodTerminal>
+                    <ConfigurableMethodTerminal ConfiguredValue="OFDLPD_LM">
+                        <Terminal Id="name" Direction="Input" DataType="String" Hotspot="0.5 1" Bounds="0 0 0 0" />
+                    </ConfigurableMethodTerminal>
+                    <Terminal Id="SequenceIn" Direction="Input" Wire="w20" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" Hotspot="0 0.5" Bounds="0 33 18 18" />
+                    <Terminal Id="SequenceOut" Direction="Output" Wire="w22" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" Hotspot="1 0.5" Bounds="83 33 18 18" />
+                </ConfigurableMethodCall>
+                <Wire Id="w13" Joints="N(n4:valueOut) v(22) N(n7:Numeric)" />
+                <ConfigurableMethodCall Id="n15" Bounds="1813 98 101 91" Target="X3\.Lib:GlobalGetSingle">
+                    <ConfigurableMethodTerminal>
+                        <Terminal Id="valueOut" Direction="Output" Wire="w15" DataType="Single" Hotspot="0.5 1" Bounds="54 56 30 27" />
+                    </ConfigurableMethodTerminal>
+                    <ConfigurableMethodTerminal ConfiguredValue="OFDLPD_RM">
+                        <Terminal Id="name" Direction="Input" DataType="String" Hotspot="0.5 1" Bounds="0 0 0 0" />
+                    </ConfigurableMethodTerminal>
+                    <Terminal Id="SequenceIn" Direction="Input" Wire="w22" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" Hotspot="0 0.5" Bounds="0 33 18 18" />
+                    <Terminal Id="SequenceOut" Direction="Output" Wire="w24" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" Hotspot="1 0.5" Bounds="83 33 18 18" />
+                </ConfigurableMethodCall>
+                <Wire Id="w15" Joints="N(n15:valueOut) v(22) N(n8:Numeric)" />
+                <ConfigurableMethodCall Id="n16" Bounds="1435 98 101 91" Target="X3\.Lib:GlobalGetSingle">
+                    <ConfigurableMethodTerminal>
+                        <Terminal Id="valueOut" Direction="Output" Wire="w17" DataType="Single" Hotspot="0.5 1" Bounds="54 56 30 27" />
+                    </ConfigurableMethodTerminal>
+                    <ConfigurableMethodTerminal ConfiguredValue="OFDLPD_PWR">
+                        <Terminal Id="name" Direction="Input" DataType="String" Hotspot="0.5 1" Bounds="0 0 0 0" />
+                    </ConfigurableMethodTerminal>
+                    <Terminal Id="SequenceIn" Direction="Input" Wire="w18" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" Hotspot="0 0.5" Bounds="0 33 18 18" />
+                    <Terminal Id="SequenceOut" Direction="Output" Wire="w20" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" Hotspot="1 0.5" Bounds="83 33 18 18" />
+                </ConfigurableMethodCall>
+                <Wire Id="w17" Joints="N(n16:valueOut) v(29) N(n12:Numeric)" />
+                <ConfigurableMethodCall Id="n18" Bounds="1078 98 101 91" Target="X3\.Lib:GlobalGetSingle">
+                    <ConfigurableMethodTerminal>
+                        <Terminal Id="valueOut" Direction="Output" Wire="w19" DataType="Single" Hotspot="0.5 1" Bounds="54 56 30 27" />
+                    </ConfigurableMethodTerminal>
+                    <ConfigurableMethodTerminal ConfiguredValue="OFDLPD_Kp">
+                        <Terminal Id="name" Direction="Input" DataType="String" Hotspot="0.5 1" Bounds="0 0 0 0" />
+                    </ConfigurableMethodTerminal>
+                    <Terminal Id="SequenceIn" Direction="Input" Wire="w23" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" Hotspot="0 0.5" Bounds="0 33 18 18" />
+                    <Terminal Id="SequenceOut" Direction="Output" Wire="w16" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" Hotspot="1 0.5" Bounds="83 33 18 18" />
+                </ConfigurableMethodCall>
+                <Wire Id="w19" Joints="N(n18:valueOut) v(29) N(n10:Numeric)" />
+                <ConfigurableMethodCall Id="n20" Bounds="1232 98 101 91" Target="X3\.Lib:GlobalGetSingle">
+                    <ConfigurableMethodTerminal>
+                        <Terminal Id="valueOut" Direction="Output" Wire="w21" DataType="Single" Hotspot="0.5 1" Bounds="54 56 30 27" />
+                    </ConfigurableMethodTerminal>
+                    <ConfigurableMethodTerminal ConfiguredValue="OFDLPD_Kd">
+                        <Terminal Id="name" Direction="Input" DataType="String" Hotspot="0.5 1" Bounds="0 0 0 0" />
+                    </ConfigurableMethodTerminal>
+                    <Terminal Id="SequenceIn" Direction="Input" Wire="w16" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" Hotspot="0 0.5" Bounds="0 33 18 18" />
+                    <Terminal Id="SequenceOut" Direction="Output" Wire="w18" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" Hotspot="1 0.5" Bounds="83 33 18 18" />
+                </ConfigurableMethodCall>
+                <Wire Id="w21" Joints="N(n20:valueOut) v(29) N(n11:Numeric)" />
+                <Wire Id="w16" Joints="N(n18:SequenceOut) N(n20:SequenceIn)" />
+                <Wire Id="w18" Joints="N(n20:SequenceOut) N(n16:SequenceIn)" />
+                <Wire Id="w20" Joints="N(n16:SequenceOut) N(n4:SequenceIn)" />
+                <Wire Id="w22" Joints="N(n4:SequenceOut) N(n15:SequenceIn)" />
+                <DataAccessor DataItem="SequenceIn" Id="n21" Bounds="924 133 98 14">
+                    <Terminal Id="Value" Direction="Output" Wire="w23" Hotspot="1 0.5" Bounds="0 0 98 14" />
+                </DataAccessor>
+                <DataAccessor DataItem="SequenceOut" Id="n22" Bounds="1974 133 105 14">
+                    <Terminal Id="Value" Direction="Input" Wire="w24" Hotspot="0 0.5" Bounds="0 0 105 14" />
+                </DataAccessor>
+                <Wire Id="w23" Joints="N(n21:Value) N(n18:SequenceIn)" />
+                <Wire Id="w24" Joints="N(n15:SequenceOut) N(n22:Value)" />
+            </BlockDiagram>
+            <Icon>
+                <Model:IconPanel xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:Model="clr-namespace:NationalInstruments.LabVIEW.VI.Design;assembly=NationalInstruments.LabVIEW.VI.SourceModel" xmlns:fpruntime="clr-namespace:NationalInstruments.LabVIEW.FrontPanelRuntime;assembly=NationalInstruments.LabVIEW.FrontPanelRuntime" xmlns:ation="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Height="112" Width="56">
+                    <fpruntime:AnimationProperties.Animations>
+                        <fpruntime:AnimationsContainer />
+                    </fpruntime:AnimationProperties.Animations>
+                    <fpruntime:EventProperties.Events>
+                        <fpruntime:EventContainer />
+                    </fpruntime:EventProperties.Events>
+                    <Model:IconPanel.Background>
+                        <ation:LinearGradientBrush StartPoint="0.5, 0" EndPoint="0.5, 1">
+                            <ation:LinearGradientBrush.Transform>
+                                <ation:MatrixTransform />
+                            </ation:LinearGradientBrush.Transform>
+                            <ation:LinearGradientBrush.RelativeTransform>
+                                <ation:MatrixTransform />
+                            </ation:LinearGradientBrush.RelativeTransform>
+                            <ation:GradientStop Color="#FFF6F5C6" />
+                            <ation:GradientStop Color="#FFFFFFFE" Offset="0.25" />
+                            <ation:GradientStop Color="#FFF6F5C6" Offset="1" />
+                        </ation:LinearGradientBrush>
+                    </Model:IconPanel.Background>
+                    <ation:Rectangle x:Name="Template" Width="NaN" Height="NaN" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0, 13, 0, 0" ation:Grid.Row="0" ation:Grid.Column="0" ation:Grid.RowSpan="1" ation:Grid.ColumnSpan="1" Fill="#00FFFFFF" Stroke="#FF000000" StrokeThickness="1" RadiusX="0" RadiusY="0">
+                        <fpruntime:AnimationProperties.Animations>
+                            <fpruntime:AnimationsContainer />
+                        </fpruntime:AnimationProperties.Animations>
+                        <fpruntime:EventProperties.Events>
+                            <fpruntime:EventContainer />
+                        </fpruntime:EventProperties.Events>
+                    </ation:Rectangle>
+                    <ation:Rectangle x:Name="Template2" Width="NaN" Height="14" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0" ation:Grid.Row="0" ation:Grid.Column="0" ation:Grid.RowSpan="1" ation:Grid.ColumnSpan="1" Stroke="#FF000000" StrokeThickness="1" RadiusX="0" RadiusY="0">
+                        <fpruntime:AnimationProperties.Animations>
+                            <fpruntime:AnimationsContainer />
+                        </fpruntime:AnimationProperties.Animations>
+                        <fpruntime:EventProperties.Events>
+                            <fpruntime:EventContainer />
+                        </fpruntime:EventProperties.Events>
+                        <ation:Rectangle.Fill>
+                            <ation:LinearGradientBrush StartPoint="0.5, 0" EndPoint="0.5, 1">
+                                <ation:LinearGradientBrush.Transform>
+                                    <ation:MatrixTransform />
+                                </ation:LinearGradientBrush.Transform>
+                                <ation:LinearGradientBrush.RelativeTransform>
+                                    <ation:MatrixTransform />
+                                </ation:LinearGradientBrush.RelativeTransform>
+                                <ation:GradientStop Color="#FFFFFFFF" />
+                                <ation:GradientStop Color="#FFD5EAEA" Offset="1" />
+                            </ation:LinearGradientBrush>
+                        </ation:Rectangle.Fill>
+                    </ation:Rectangle>
+                    <ation:TextBlock x:Name="Template3" Width="NaN" Height="NaN" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0, -0.100000001490116, 0, 0" ation:Grid.Row="0" ation:Grid.Column="0" ation:Grid.RowSpan="1" ation:Grid.ColumnSpan="1" Text="SubVI" FontFamily="Portable User Interface" FontSize="10" FontWeight="Normal" Foreground="#FF000000">
+                        <fpruntime:AnimationProperties.Animations>
+                            <fpruntime:AnimationsContainer />
+                        </fpruntime:AnimationProperties.Animations>
+                        <fpruntime:EventProperties.Events>
+                            <fpruntime:EventContainer />
+                        </fpruntime:EventProperties.Events>
+                        <fpruntime:BuddyReferenceProperties.BuddyProperties>
+                            <fpruntime:BuddyProperties />
+                        </fpruntime:BuddyReferenceProperties.BuddyProperties>
+                    </ation:TextBlock>
+                    <ation:TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="13.9716634750366, 34.3016638755798, 0, 0">
+                        <fpruntime:AnimationProperties.Animations>
+                            <fpruntime:AnimationsContainer />
+                        </fpruntime:AnimationProperties.Animations>
+                        <fpruntime:EventProperties.Events>
+                            <fpruntime:EventContainer />
+                        </fpruntime:EventProperties.Events>
+                        <ation:TextBlock.Text>
+                            <String xml:space="preserve" xmlns="clr-namespace:System;assembly=mscorlib">Read
+
+Conf</String>
+                        </ation:TextBlock.Text>
+                        <fpruntime:BuddyReferenceProperties.BuddyProperties>
+                            <fpruntime:BuddyProperties />
+                        </fpruntime:BuddyReferenceProperties.BuddyProperties>
+                    </ation:TextBlock>
+                </Model:IconPanel>
+            </Icon>
+        </VirtualInstrument>
+    </Namespace>
+</SourceFile>

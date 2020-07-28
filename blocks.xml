@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EditorDefinitions>
+	<PolyGroups ModuleName="OFDL Advanced Motor Controllers" ModuleVersion="1.2 (By OFDL Dev.)">
+		<PolyGroup Name="OFDL PD Controller" BlockFamily="Action">
+			<Parameter Name="Ports" CompilerDirectives="TwoOutputPorts" Direction="Input" DefaultValue="1.B+C" />
+			<Parameter Name="P1" Identification="builtin://Identification_SensorPort_0.png" DataType="Single" Direction="Input" DefaultValue="0" />
+			<Parameter Name="P2" Identification="builtin://Identification_SensorPort_1.png" DataType="Single" Direction="Input" DefaultValue="0" />
+			<Parameter Name="Kp" Identification="OFDL_Kp.png" DataType="Single" Direction="Input" DefaultValue="0.3" />
+			<Parameter Name="Kd" Identification="OFDL_Kd.png" DataType="Single" Direction="Input" DefaultValue="0.7" />
+			<Parameter Name="Power" Identification="builtin://Identification_Speed_Plus75.png" DataType="Single" Direction="Input" DefaultValue="50" MinValue="-100" MaxValue="100"/>
+			<!--
+			<Parameter Name="LeftInversed" Identification="builtin://Identification_Invert_1.png" DataType="Boolean" Direction="Input" DefaultValue="False" />
+			<Parameter Name="RightInversed" Identification="builtin://Identification_Invert_1.png" DataType="Boolean" Direction="Input" DefaultValue="False" />
+			<Parameter Name="OuputLeft" Identification="builtin://Identification_B.png" DataType="Single" Direction="Output" />
+			<Parameter Name="OuputRight" Identification="builtin://Identification_C.png" DataType="Single" Direction="Output" />
+			-->
+			<Hardware>
+				<AlternativePolyGroupName>Motor</AlternativePolyGroupName>
+				<AlternativePolyGroupName>MediumMotor</AlternativePolyGroupName>
+				<EV3AutoID>7</EV3AutoID>
+				<OtherAutoID>8</OtherAutoID>
+				<Direction>Output</Direction>
+				<DefaultPort>1.B+C</DefaultPort>
+			</Hardware>
+			<!--
+			<Block>
+				<Mode>PD_ByParms</Mode>
+				<Reference Type="VILib" Name="OFDL_PD_ByParms.vix" />
+				<ParameterReference Name="Ports" />
+				<ParameterReference Name="P1" />
+				<ParameterReference Name="P2" />
+				<ParameterReference Name="Kp" />
+				<ParameterReference Name="Kd" />
+				<ParameterReference Name="Power" />
+				<ParameterReference Name="LeftInversed" />
+				<ParameterReference Name="RightInversed" />
+				<Flags>PBROnly</Flags>
+			</Block>
+			-->
+			<Category Name="P_byVars">
+				<Block>
+					<Mode>P_Large</Mode>
+					<Reference Type="VILib" Name="OFDL_P_Large.vix" />
+					<ParameterReference Name="P1" />
+					<ParameterReference Name="P2" />
+					<Flags>PBROnly</Flags>
+				</Block>
+				<Block>
+					<Mode>P_Medium</Mode>
+					<Reference Type="VILib" Name="OFDL_P_Medium.vix" />
+					<ParameterReference Name="P1" />
+					<ParameterReference Name="P2" />
+					<Flags>PBROnly</Flags>
+				</Block>
+				<Block>
+					<Mode>P_twoRev</Mode>
+					<Reference Type="VILib" Name="OFDL_P_twoRev.vix" />
+					<ParameterReference Name="P1" />
+					<ParameterReference Name="P2" />
+					<Flags>PBROnly</Flags>
+				</Block>
+			</Category>
+			
+			<Category Name="PD_byVars">
+				<Block>
+					<Mode>PD_Large</Mode>
+					<Reference Type="VILib" Name="OFDL_PD_Large.vix" />
+					<ParameterReference Name="P1" />
+					<ParameterReference Name="P2" />
+					<Flags>PBROnly</Flags>
+				</Block>
+				<Block>
+					<Mode>PD_Medium</Mode>
+					<Reference Type="VILib" Name="OFDL_PD_Medium.vix" />
+					<ParameterReference Name="P1" />
+					<ParameterReference Name="P2" />
+					<Flags>PBROnly</Flags>
+				</Block>
+				<Block>
+					<Mode>PD_twoRev</Mode>
+					<Reference Type="VILib" Name="OFDL_PD_twoRev.vix" />
+					<ParameterReference Name="P1" />
+					<ParameterReference Name="P2" />
+					<Flags>PBROnly</Flags>
+				</Block>
+			</Category>
+			
+			<Category Name="PDpwr_byVars">
+				<Block>
+					<Mode>PDpwr_Large</Mode>
+					<Reference Type="VILib" Name="OFDL_PDpwr_Large.vix" />
+					<ParameterReference Name="Power" />
+					<ParameterReference Name="P1" />
+					<ParameterReference Name="P2" />
+					<Flags>PBROnly</Flags>
+				</Block>
+				<Block>
+					<Mode>PDpwr_Medium</Mode>
+					<Reference Type="VILib" Name="OFDL_PDpwr_Medium.vix" />
+					<ParameterReference Name="Power" />
+					<ParameterReference Name="P1" />
+					<ParameterReference Name="P2" />
+					<Flags>PBROnly</Flags>
+				</Block>
+				<Block>
+					<Mode>PDpwr_twoRev</Mode>
+					<Reference Type="VILib" Name="OFDL_PDpwr_twoRev.vix" />
+					<ParameterReference Name="Power" />
+					<ParameterReference Name="P1" />
+					<ParameterReference Name="P2" />
+					<Flags>PBROnly</Flags>
+				</Block>
+			</Category>
+			
+			<Block>
+				<Mode>Configuration</Mode>
+				<Reference Type="VILib" Name="OFDL_PD_Conf.vix" />
+				<ParameterReference Name="Ports" />
+				<ParameterReference Name="Kp" />
+				<ParameterReference Name="Kd" />
+				<ParameterReference Name="Power" />
+				<PaletteInfo Weight="0.5" />
+				<Flags>PBROnly</Flags>
+			</Block>
+		</PolyGroup>
+		<PolyGroup Name="OFDL Acceleration Controller" BlockFamily="Action">
+			<Parameter Name="EncPort" CompilerDirectives="TwoOutputPorts" Direction="Input" DefaultValue="1.B+C" />
+			<Parameter Name="MaxPwr" Identification="builtin://Identification_Speed_Plus75.png" DataType="Single" Direction="Input" MinValue="-100" MaxValue="100" DefaultValue="90" />
+			<Parameter Name="MinPwr" Identification="builtin://Identification_Speed_Plus25.png" DataType="Single" Direction="Input" MinValue="-100" MaxValue="100" DefaultValue="15" />
+			<Parameter Name="AccelDist" Identification="builtin://Identification_DegreesAngle_Minus90.png" DataType="Single" Direction="Input" DefaultValue="300" />
+			<Parameter Name="DecelDist" Identification="builtin://Identification_DegreesAngle_Plus90.png" DataType="Single" Direction="Input" DefaultValue="300" />
+			<Parameter Name="FullDist" Identification="builtin://Identification_Width.png" DataType="Single" Direction="Input" DefaultValue="1000" />
+			<Parameter Name="Output" Identification="builtin://Identification_Speed_Plus75.png" DataType="Single" Direction="Output" />
+			<Parameter Name="E1Output" Identification="builtin://Identification_OutpuNumberDegrees.png" DataType="Single" Direction="Output" />
+			<Parameter Name="E2Output" Identification="builtin://Identification_OutpuNumberDegrees.png" DataType="Single" Direction="Output" />
+			<Parameter Name="Finish" Identification="builtin://Identification_OutputBoolean.png" DataType="Boolean" Direction="Output" />
+			<Hardware>
+				<AlternativePolyGroupName>Motor</AlternativePolyGroupName>
+				<AlternativePolyGroupName>MediumMotor</AlternativePolyGroupName>
+				<OtherAutoID>8</OtherAutoID>
+				<EV3AutoID>0</EV3AutoID>
+				<EV3PlotColor>#ff6b3099</EV3PlotColor>
+				<NXTPlotColor>#ff3f0199</NXTPlotColor>
+				<Direction>Output</Direction>
+				<Unit>rot</Unit>
+				<Unit>deg</Unit>
+				<DefaultPort>1.B+C</DefaultPort>
+			</Hardware>
+			<Block>
+				<Mode>ACDC_Output1Degs</Mode>
+				<Reference Type="VILib" Name="OFDLACC_OutOneDegs.vix" />
+				<ParameterReference Name="Output" />
+				<ParameterReference Name="E1Output" />
+				<ParameterReference Name="Finish" />
+				<Flags>PBROnly</Flags>
+			</Block>
+			<Block>
+				<Mode>ACDC_Output2Degs</Mode>
+				<Reference Type="VILib" Name="OFDLACC_OutTwoDegs.vix" />
+				<ParameterReference Name="Output" />
+				<ParameterReference Name="E1Output" />
+				<ParameterReference Name="E2Output" />
+				<ParameterReference Name="Finish" />
+				<Flags>PBROnly</Flags>
+			</Block>
+			
+			<Block>
+				<Mode>Configuration</Mode>
+				<Reference Type="VILib" Name="OFDLACC_Conf.vix" />
+				<ParameterReference Name="EncPort" />
+				<ParameterReference Name="MinPwr" />
+				<ParameterReference Name="MaxPwr" />
+				<ParameterReference Name="AccelDist" />
+				<ParameterReference Name="DecelDist" />
+				<ParameterReference Name="FullDist" />
+				<ParameterReference Name="Output" />
+				<PaletteInfo Weight="0.5" />
+				<Flags>PBROnly</Flags>
+			</Block>
+		</PolyGroup>
+		<PolyGroup Name="OFDL MoveSync Controller" BlockFamily="Action">
+			<Parameter Name="Ports" CompilerDirectives="TwoOutputPorts" Direction="Input" DefaultValue="1.B+C" />
+			<Parameter Name="E1" Identification="builtin://Identification_SensorPort_0.png" DataType="Single" Direction="Input" DefaultValue="0" />
+			<Parameter Name="E2" Identification="builtin://Identification_SensorPort_1.png" DataType="Single" Direction="Input" DefaultValue="0" />
+			<Parameter Name="Kp" Identification="OFDL_Kp.png" DataType="Single" Direction="Input" DefaultValue="0.12" />
+			<Parameter Name="Power1" Identification="builtin://Identification_Speed_Plus75.png" DataType="Single" Direction="Input" DefaultValue="50" MinValue="-100" MaxValue="100"/>
+			<Parameter Name="Power2" Identification="builtin://Identification_Speed_Plus75.png" DataType="Single" Direction="Input" DefaultValue="50" MinValue="-100" MaxValue="100"/>
+			<Parameter Name="LeftInversed" Identification="builtin://Identification_Invert_1.png" DataType="Boolean" Direction="Input" DefaultValue="False" />
+			<Parameter Name="RightInversed" Identification="builtin://Identification_Invert_1.png" DataType="Boolean" Direction="Input" DefaultValue="False" />
+			<Hardware>
+				<AlternativePolyGroupName>Motor</AlternativePolyGroupName>
+				<AlternativePolyGroupName>MediumMotor</AlternativePolyGroupName>
+				<OtherAutoID>8</OtherAutoID>
+				<EV3AutoID>0</EV3AutoID>
+				<EV3PlotColor>#ff6b3099</EV3PlotColor>
+				<NXTPlotColor>#ff3f0199</NXTPlotColor>
+				<Direction>Output</Direction>
+				<Unit>rot</Unit>
+				<Unit>deg</Unit>
+				<DefaultPort>1.B+C</DefaultPort>
+			</Hardware>
+			<Block>
+				<Mode>SYNC_Std</Mode>
+				<Reference Type="VILib" Name="OFDLSYNC_Std.vix" />
+				<ParameterReference Name="E1" />
+				<ParameterReference Name="E2" />
+				<Flags>PBROnly</Flags>
+			</Block>
+			<Block>
+				<Mode>SYNC_byPwr</Mode>
+				<Reference Type="VILib" Name="OFDLSYNC_byPwr.vix" />
+				<ParameterReference Name="Power1" />
+				<ParameterReference Name="Power2" />
+				<ParameterReference Name="E1" />
+				<ParameterReference Name="E2" />
+				<Flags>PBROnly</Flags>
+			</Block>
+			
+			<Block>
+				<Mode>Configuration</Mode>
+				<Reference Type="VILib" Name="OFDLSYNC_Conf.vix" />
+				<ParameterReference Name="Ports" />
+				<ParameterReference Name="Kp" />
+				<ParameterReference Name="Power1" />
+				<ParameterReference Name="Power2" />
+				<ParameterReference Name="LeftInversed" />
+				<ParameterReference Name="RightInversed" />
+				<PaletteInfo Weight="0.5" />
+				<Flags>PBROnly</Flags>
+			</Block>
+		</PolyGroup>
+		<PolyGroup Name="OFDL_RawMotor_Adv" BlockFamily="Advanced">
+         <Parameter Name="Power" DataType="Single" Direction="Input" DefaultValue="100" Identification="builtin://Identification_Speed_Plus75.png" />
+         <Hardware>
+            <AlternativePolyGroupName>Motor</AlternativePolyGroupName>
+            <AlternativePolyGroupName>MediumMotor</AlternativePolyGroupName>
+            <OtherAutoID>0</OtherAutoID>
+            <EV3AutoID>0</EV3AutoID>
+            <Direction>Output</Direction>
+            <DefaultPort>1.A</DefaultPort>
+         </Hardware>
+         <Block>
+            <Mode>MT_A</Mode>
+            <Reference Type="VILib" Name="OFDL_RawMotor_A.vix" />
+            <ParameterReference Name="Power" />
+            <PaletteInfo Weight="0.5" />
+         </Block>
+         <Block>
+            <Mode>MT_B</Mode>
+            <Reference Type="VILib" Name="OFDL_RawMotor_B.vix" />
+            <ParameterReference Name="Power" />
+         </Block>
+         <Block>
+            <Mode>MT_C</Mode>
+            <Reference Type="VILib" Name="OFDL_RawMotor_C.vix" />
+            <ParameterReference Name="Power" />
+         </Block>
+         <Block>
+            <Mode>MT_D</Mode>
+            <Reference Type="VILib" Name="OFDL_RawMotor_D.vix" />
+            <ParameterReference Name="Power" />
+         </Block>
+      </PolyGroup>
+	  
+      <PolyGroup Name="OFDL_Encoder_Adv" BlockFamily="Sensor">
+         <Parameter Name="Degress" Direction="Output" DataType="Single" Identification="builtin://Identification_OutpuNumberDegrees.png" />
+         <Hardware>
+            <AlternativePolyGroupName>Motor</AlternativePolyGroupName>
+            <AlternativePolyGroupName>MediumMotor</AlternativePolyGroupName>
+            <OtherAutoID>8</OtherAutoID>
+            <EV3AutoID>0</EV3AutoID>
+            <EV3PlotColor>#ff6b3099</EV3PlotColor>
+            <NXTPlotColor>#ff3f0199</NXTPlotColor>
+            <Direction>Output</Direction>
+            <Unit>deg</Unit>
+            <DefaultPort>1.A</DefaultPort>
+         </Hardware>
+		 <Category Name="EncRead">
+            <Block>
+               <Mode>MT_A</Mode>
+               <Reference Type="VILib" Name="OFDL_EncREAD_A.vix" />
+			   <ParameterReference Name="Degress" />
+			   <PaletteInfo Weight="0.5" />
+               <Flags>PBROnly</Flags>
+            </Block>
+            <Block>
+               <Mode>MT_B</Mode>
+               <Reference Type="VILib" Name="OFDL_EncREAD_B.vix" />
+			   <ParameterReference Name="Degress" />
+               <Flags>PBROnly</Flags>
+            </Block>
+            <Block>
+               <Mode>MT_C</Mode>
+               <Reference Type="VILib" Name="OFDL_EncREAD_C.vix" />
+			   <ParameterReference Name="Degress" />
+               <Flags>PBROnly</Flags>
+            </Block>
+            <Block>
+               <Mode>MT_D</Mode>
+               <Reference Type="VILib" Name="OFDL_EncREAD_D.vix" />
+			   <ParameterReference Name="Degress" />
+               <Flags>PBROnly</Flags>
+            </Block>
+         </Category>
+		  <Category Name="EncReset">
+            <Block>
+               <Mode>MT_A</Mode>
+               <Reference Type="VILib" Name="OFDL_EncRST_A.vix" />
+               <Flags>PBROnly</Flags>
+            </Block>
+            <Block>
+               <Mode>MT_B</Mode>
+               <Reference Type="VILib" Name="OFDL_EncRST_B.vix" />
+               <Flags>PBROnly</Flags>
+            </Block>
+            <Block>
+               <Mode>MT_C</Mode>
+               <Reference Type="VILib" Name="OFDL_EncRST_C.vix" />
+               <Flags>PBROnly</Flags>
+            </Block>
+            <Block>
+               <Mode>MT_D</Mode>
+               <Reference Type="VILib" Name="OFDL_EncRST_D.vix" />
+               <Flags>PBROnly</Flags>
+            </Block>
+         </Category>
+      </PolyGroup>
+	</PolyGroups>
+</EditorDefinitions>

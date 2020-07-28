@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SourceFile Version="1.0.2.10" xmlns="http://www.ni.com/SourceModel.xsd">
+    <Namespace Name="Project">
+        <VirtualInstrument IsTopLevel="false" IsReentrant="false" Version="1.0.2.0" xmlns="http://www.ni.com/VirtualInstrument.xsd">
+			<DataItem Name="SequenceIn" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Input" CallIndex="1" />
+            <DataItem Name="SequenceOut" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" DefaultTerminalDirection="Input" CallUsage="None" CallDirection="Output" CallIndex="1" />
+            <DataItem Name="Power" DataType="Single" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Input" CallIndex="0" DefaultValue="50" />
+            <FrontPanel>
+                <fpruntime:FrontPanelCanvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:fpruntime="clr-namespace:NationalInstruments.LabVIEW.FrontPanelRuntime;assembly=NationalInstruments.LabVIEW.FrontPanelRuntime" xmlns:Model0="clr-namespace:NationalInstruments.SourceModel.Designer;assembly=NationalInstruments.SourceModel" x:Name="FrontPanel" Model0:DesignerSurfaceProperties.CanSnapToObjects="True" Model0:DesignerSurfaceProperties.SnapToObjects="True" Model0:DesignerSurfaceProperties.ShowSnaplines="True" Model0:DesignerSurfaceProperties.ShowControlAdorners="True" Width="640" Height="480" />
+            </FrontPanel>
+            <BlockDiagram Name="__RootDiagram__">
+                <Wire Id="w23" Joints="N(n7:Value) N(b14:n1)" />
+                <Wire Id="w17" Joints="N(n14:Out) h(56) v(7) N(b12:n1)" />
+                <Wire Id="w15" Joints="N(n13:Out) N(b9:n1)" />
+                <FlatSequence Id="n1" Bounds="616 98 287 140">
+                    <FlatSequence.Frame Id="D2" Bounds="7 7 126 126">
+                        <MethodCall Id="n4" Bounds="56 42 28 42" Target="X3\.Lib:PBrickOutputPower">
+                            <Terminal Id="layer" Direction="Input" Wire="w2" DataType="Byte" Hotspot="0 0.5" Bounds="0 0 14 14" />
+                            <Terminal Id="nos" Direction="Input" Wire="w6" DataType="Byte" Hotspot="0 0.5" Bounds="0 14 14 14" />
+                            <Terminal Id="power" Direction="Input" Wire="w7" DataType="SByte" Hotspot="0 0.5" Bounds="0 28 14 14" />
+                        </MethodCall>
+                        <Wire Id="w2" Joints="N(b9:D2) h(19) v(-14) N(b10:D2) B(1) N(n4:layer)" />
+                        <Wire Id="w6" Joints="N(b12:D2) h(17) v(21) N(b13:D2) B(1) v(-7) N(n4:nos)" />
+                        <Wire Id="w7" Joints="N(b14:D2) h(28) v(-21) N(n4:power)" />
+                    </FlatSequence.Frame>
+                    <FlatSequence.Frame Id="D3" Bounds="140 7 140 126">
+                        <MethodCall Id="n5" Bounds="70 49 28 28" Target="X3\.Lib:PBrickOutputStart">
+                            <Terminal Id="layer" Direction="Input" Wire="w3" DataType="Byte" Hotspot="0 0.5" Bounds="0 0 14 14" />
+                            <Terminal Id="nos" Direction="Input" Wire="w7" DataType="Byte" Hotspot="0 0.5" Bounds="0 14 14 14" />
+                        </MethodCall>
+                        <Wire Id="w3" Joints="N(b10:D3) h(3.5) v(21) N(n5:layer)" />
+                        <Wire Id="w7" Joints="N(b13:D3) h(10.5) v(-21) N(n5:nos)" />
+                    </FlatSequence.Frame>
+                    <FlatSequence.Tunnel Id="b9" Terminals="n1=w15, D2=w2" TopLeft="0 49" />
+                    <FlatSequence.Tunnel Id="b10" Terminals="D3=w3, D2=w2" TopLeft="129.5 35" />
+                    <FlatSequence.Tunnel Id="b12" Terminals="n1=w17, D2=w6" TopLeft="0 70" />
+                    <FlatSequence.Tunnel Id="b14" Terminals="n1=w23, D2=w7" TopLeft="0 98" />
+                    <FlatSequence.Tunnel Id="b13" Terminals="D3=w7, D2=w6" TopLeft="129.5 91" />
+                </FlatSequence>
+                <DataAccessor DataItem="Power" Id="n7" Bounds="462 196 70 14">
+                    <Terminal Id="Value" Direction="Output" Wire="w23" Hotspot="1 0.5" Bounds="0 0 70 14" />
+                </DataAccessor>
+                <Literal Id="n13" Terminals="Out=w15" Bounds="350 147 28 14" Interpretation="Exact" DataType="SByte">0</Literal>
+                <Literal Id="n14" Terminals="Out=w17" Bounds="350 161 28 14" Interpretation="Exact" DataType="SByte">1</Literal>
+            </BlockDiagram>
+        </VirtualInstrument>
+    </Namespace>
+</SourceFile>

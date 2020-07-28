@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SourceFile Version="1.0.2.10" xmlns="http://www.ni.com/SourceModel.xsd">
+    <Namespace Name="Project">
+        <VirtualInstrument IsTopLevel="false" IsReentrant="false" Version="1.0.2.0" xmlns="http://www.ni.com/VirtualInstrument.xsd">
+            <DataItem Name="SequenceIn" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Input" CallIndex="8" />
+            <DataItem Name="SequenceOut" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" DefaultTerminalDirection="Input" CallUsage="None" CallDirection="Output" CallIndex="10" />
+            <DataItem Name="MaxPwr" DataType="Single" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Output" CallIndex="6" />
+            <DataItem Name="MinPwr" DataType="Single" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Output" CallIndex="5" />
+            <DataItem Name="AccelDist" DataType="Single" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Output" CallIndex="3" />
+            <DataItem Name="DecelDist" DataType="Single" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Output" CallIndex="4" />
+            <DataItem Name="FullDist" DataType="Single" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Output" CallIndex="2" />
+            <DataItem Name="EncPort1" DataType="Single" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Output" CallIndex="0" DefaultValue="0" />
+            <DataItem Name="EncPort2" DataType="Single" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Output" CallIndex="1" DefaultValue="0" />
+            <DataItem Name="lastEnc1" DataType="Single" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Output" CallIndex="7" DefaultValue="0" />
+            <DataItem Name="lastEnc2" DataType="Single" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Output" CallIndex="8" DefaultValue="0" />
+            <DataItem Name="negative" DataType="Boolean" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Output" CallIndex="9" />
+            <FrontPanel>
+                <fpruntime:FrontPanelCanvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:fpruntime="clr-namespace:NationalInstruments.LabVIEW.FrontPanelRuntime;assembly=NationalInstruments.LabVIEW.FrontPanelRuntime" xmlns:Model0="clr-namespace:NationalInstruments.SourceModel.Designer;assembly=NationalInstruments.SourceModel" x:Name="FrontPanel" Model0:DesignerSurfaceProperties.CanSnapToObjects="True" Model0:DesignerSurfaceProperties.SnapToObjects="True" Model0:DesignerSurfaceProperties.ShowSnaplines="True" Model0:DesignerSurfaceProperties.ShowControlAdorners="True" Width="640" Height="480" />
+            </FrontPanel>
+            <BlockDiagram Name="__RootDiagram__">
+                <DataAccessor DataItem="SequenceIn" Id="n21" Bounds="924 133 98 14">
+                    <Terminal Id="Value" Direction="Output" Wire="w21" Hotspot="1 0.5" Bounds="0 0 98 14" />
+                </DataAccessor>
+                <DataAccessor DataItem="SequenceOut" Id="n22" Bounds="2695 126 105 14">
+                    <Terminal Id="Value" Direction="Input" Wire="w42" Hotspot="0 0.5" Bounds="0 0 105 14" />
+                </DataAccessor>
+                <DataAccessor DataItem="MaxPwr" Id="n9" Bounds="1162 210 77 14">
+                    <Terminal Id="Numeric" Direction="Input" Wire="w14" Hotspot="0 0.5" Bounds="0 0 77 14" />
+                </DataAccessor>
+                <DataAccessor DataItem="MinPwr" Id="n10" Bounds="1295 210 70 14">
+                    <Terminal Id="Numeric" Direction="Input" Wire="w12" Hotspot="0 0.5" Bounds="0 0 70 14" />
+                </DataAccessor>
+                <DataAccessor DataItem="AccelDist" Id="n3" Bounds="1435 210 84 14">
+                    <Terminal Id="Numeric" Direction="Input" Wire="w16" Hotspot="0 0.5" Bounds="0 0 84 14" />
+                </DataAccessor>
+                <DataAccessor DataItem="DecelDist" Id="n4" Bounds="1582 210 84 14">
+                    <Terminal Id="Numeric" Direction="Input" Wire="w18" Hotspot="0 0.5" Bounds="0 0 84 14" />
+                </DataAccessor>
+                <DataAccessor DataItem="FullDist" Id="n5" Bounds="1729 210 70 14">
+                    <Terminal Id="Numeric" Direction="Input" Wire="w20" Hotspot="0 0.5" Bounds="0 0 70 14" />
+                </DataAccessor>
+                <DataAccessor DataItem="EncPort1" Id="n12" Bounds="1862 210 77 14">
+                    <Terminal Id="Value" Direction="Input" Wire="w28" Hotspot="0 0.5" Bounds="0 0 77 14" />
+                </DataAccessor>
+                <ConfigurableMethodCall Id="n11" Bounds="1218 84 101 91" Target="X3\.Lib:GlobalGetSingle">
+                    <ConfigurableMethodTerminal>
+                        <Terminal Id="valueOut" Direction="Output" Wire="w12" DataType="Single" Hotspot="0.5 1" Bounds="54 56 30 27" />
+                    </ConfigurableMethodTerminal>
+                    <ConfigurableMethodTerminal ConfiguredValue="OFDLACC_min">
+                        <Terminal Id="name" Direction="Input" DataType="String" Hotspot="0.5 1" Bounds="0 0 0 0" />
+                    </ConfigurableMethodTerminal>
+                    <Terminal Id="SequenceIn" Direction="Input" Wire="w22" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" Hotspot="0 0.5" Bounds="0 33 18 18" />
+                    <Terminal Id="SequenceOut" Direction="Output" Wire="w23" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" Hotspot="1 0.5" Bounds="83 33 18 18" />
+                </ConfigurableMethodCall>
+                <Wire Id="w12" Joints="N(n11:valueOut) v(15) h(1) v(35) N(n10:Numeric)" />
+                <ConfigurableMethodCall Id="n13" Bounds="1064 84 101 91" Target="X3\.Lib:GlobalGetSingle">
+                    <ConfigurableMethodTerminal>
+                        <Terminal Id="valueOut" Direction="Output" Wire="w14" DataType="Single" Hotspot="0.5 1" Bounds="54 56 30 27" />
+                    </ConfigurableMethodTerminal>
+                    <ConfigurableMethodTerminal ConfiguredValue="OFDLACC_max">
+                        <Terminal Id="name" Direction="Input" DataType="String" Hotspot="0.5 1" Bounds="0 0 0 0" />
+                    </ConfigurableMethodTerminal>
+                    <Terminal Id="SequenceIn" Direction="Input" Wire="w21" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" Hotspot="0 0.5" Bounds="0 33 18 18" />
+                    <Terminal Id="SequenceOut" Direction="Output" Wire="w22" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" Hotspot="1 0.5" Bounds="83 33 18 18" />
+                </ConfigurableMethodCall>
+                <Wire Id="w14" Joints="N(n13:valueOut) v(50) N(n9:Numeric)" />
+                <ConfigurableMethodCall Id="n15" Bounds="1358 84 101 91" Target="X3\.Lib:GlobalGetSingle">
+                    <ConfigurableMethodTerminal>
+                        <Terminal Id="valueOut" Direction="Output" Wire="w16" DataType="Single" Hotspot="0.5 1" Bounds="54 56 30 27" />
+                    </ConfigurableMethodTerminal>
+                    <ConfigurableMethodTerminal ConfiguredValue="OFDLACC_accdist">
+                        <Terminal Id="name" Direction="Input" DataType="String" Hotspot="0.5 1" Bounds="0 0 0 0" />
+                    </ConfigurableMethodTerminal>
+                    <Terminal Id="SequenceIn" Direction="Input" Wire="w23" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" Hotspot="0 0.5" Bounds="0 33 18 18" />
+                    <Terminal Id="SequenceOut" Direction="Output" Wire="w24" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" Hotspot="1 0.5" Bounds="83 33 18 18" />
+                </ConfigurableMethodCall>
+                <Wire Id="w16" Joints="N(n15:valueOut) v(50) N(n3:Numeric)" />
+                <ConfigurableMethodCall Id="n17" Bounds="1505 84 101 91" Target="X3\.Lib:GlobalGetSingle">
+                    <ConfigurableMethodTerminal>
+                        <Terminal Id="valueOut" Direction="Output" Wire="w18" DataType="Single" Hotspot="0.5 1" Bounds="54 56 30 27" />
+                    </ConfigurableMethodTerminal>
+                    <ConfigurableMethodTerminal ConfiguredValue="OFDLACC_decdist">
+                        <Terminal Id="name" Direction="Input" DataType="String" Hotspot="0.5 1" Bounds="0 0 0 0" />
+                    </ConfigurableMethodTerminal>
+                    <Terminal Id="SequenceIn" Direction="Input" Wire="w24" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" Hotspot="0 0.5" Bounds="0 33 18 18" />
+                    <Terminal Id="SequenceOut" Direction="Output" Wire="w25" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" Hotspot="1 0.5" Bounds="83 33 18 18" />
+                </ConfigurableMethodCall>
+                <Wire Id="w18" Joints="N(n17:valueOut) v(8) h(1) v(42) N(n4:Numeric)" />
+                <ConfigurableMethodCall Id="n19" Bounds="1638 91 101 91" Target="X3\.Lib:GlobalGetSingle">
+                    <ConfigurableMethodTerminal>
+                        <Terminal Id="valueOut" Direction="Output" Wire="w20" DataType="Single" Hotspot="0.5 1" Bounds="54 56 30 27" />
+                    </ConfigurableMethodTerminal>
+                    <ConfigurableMethodTerminal ConfiguredValue="OFDLACC_fulldist">
+                        <Terminal Id="name" Direction="Input" DataType="String" Hotspot="0.5 1" Bounds="0 0 0 0" />
+                    </ConfigurableMethodTerminal>
+                    <Terminal Id="SequenceIn" Direction="Input" Wire="w25" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" Hotspot="0 0.5" Bounds="0 33 18 18" />
+                    <Terminal Id="SequenceOut" Direction="Output" Wire="w29" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" Hotspot="1 0.5" Bounds="83 33 18 18" />
+                </ConfigurableMethodCall>
+                <Wire Id="w20" Joints="N(n19:valueOut) v(22) h(-6) v(21) N(n5:Numeric)" />
+                <Wire Id="w21" Joints="N(n21:Value) h(35) v(-14) N(n13:SequenceIn)" />
+                <Wire Id="w22" Joints="N(n13:SequenceOut) N(n11:SequenceIn)" />
+                <Wire Id="w23" Joints="N(n11:SequenceOut) N(n15:SequenceIn)" />
+                <Wire Id="w24" Joints="N(n15:SequenceOut) N(n17:SequenceIn)" />
+                <Wire Id="w25" Joints="N(n17:SequenceOut) h(25) v(7) N(n19:SequenceIn)" />
+                <DataAccessor DataItem="EncPort2" Id="n24" Bounds="2009 210 77 14">
+                    <Terminal Id="Value" Direction="Input" Wire="w27" Hotspot="0 0.5" Bounds="0 0 77 14" />
+                </DataAccessor>
+                <ConfigurableMethodCall Id="n25" Bounds="1785 91 101 91" Target="X3\.Lib:GlobalGetSingle">
+                    <ConfigurableMethodTerminal>
+                        <Terminal Id="valueOut" Direction="Output" Wire="w28" DataType="Single" Hotspot="0.5 1" Bounds="54 56 30 27" />
+                    </ConfigurableMethodTerminal>
+                    <ConfigurableMethodTerminal ConfiguredValue="OFDLACC_port1">
+                        <Terminal Id="name" Direction="Input" DataType="String" Hotspot="0.5 1" Bounds="0 0 0 0" />
+                    </ConfigurableMethodTerminal>
+                    <Terminal Id="SequenceIn" Direction="Input" Wire="w29" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" Hotspot="0 0.5" Bounds="0 33 18 18" />
+                    <Terminal Id="SequenceOut" Direction="Output" Wire="w30" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" Hotspot="1 0.5" Bounds="83 33 18 18" />
+                </ConfigurableMethodCall>
+                <ConfigurableMethodCall Id="n6" Bounds="1926 91 101 91" Target="X3\.Lib:GlobalGetSingle">
+                    <ConfigurableMethodTerminal>
+                        <Terminal Id="valueOut" Direction="Output" Wire="w27" DataType="Single" Hotspot="0.5 1" Bounds="54 56 30 27" />
+                    </ConfigurableMethodTerminal>
+                    <ConfigurableMethodTerminal ConfiguredValue="OFDLACC_port2">
+                        <Terminal Id="name" Direction="Input" DataType="String" Hotspot="0.5 1" Bounds="0 0 0 0" />
+                    </ConfigurableMethodTerminal>
+                    <Terminal Id="SequenceIn" Direction="Input" Wire="w30" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" Hotspot="0 0.5" Bounds="0 33 18 18" />
+                    <Terminal Id="SequenceOut" Direction="Output" Wire="w34" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" Hotspot="1 0.5" Bounds="83 33 18 18" />
+                </ConfigurableMethodCall>
+                <Wire Id="w27" Joints="N(n6:valueOut) v(43) N(n24:Value)" />
+                <Wire Id="w28" Joints="N(n25:valueOut) v(15) h(1) v(28) N(n12:Value)" />
+                <Wire Id="w29" Joints="N(n19:SequenceOut) N(n25:SequenceIn)" />
+                <Wire Id="w30" Joints="N(n25:SequenceOut) N(n6:SequenceIn)" />
+                <DataAccessor DataItem="lastEnc1" Id="n33" Bounds="2184 217 77 14">
+                    <Terminal Id="Value" Direction="Input" Wire="w35" Hotspot="0 0.5" Bounds="0 0 77 14" />
+                </DataAccessor>
+                <DataAccessor DataItem="lastEnc2" Id="n34" Bounds="2345 217 77 14">
+                    <Terminal Id="Value" Direction="Input" Wire="w38" Hotspot="0 0.5" Bounds="0 0 77 14" />
+                </DataAccessor>
+                <ConfigurableMethodCall Id="n35" Bounds="2100 91 101 91" Target="X3\.Lib:GlobalGetSingle">
+                    <ConfigurableMethodTerminal>
+                        <Terminal Id="valueOut" Direction="Output" Wire="w35" DataType="Single" Hotspot="0.5 1" Bounds="54 56 30 27" />
+                    </ConfigurableMethodTerminal>
+                    <ConfigurableMethodTerminal ConfiguredValue="OFDLACC_E1last">
+                        <Terminal Id="name" Direction="Input" DataType="String" Hotspot="0.5 1" Bounds="0 0 0 0" />
+                    </ConfigurableMethodTerminal>
+                    <Terminal Id="SequenceIn" Direction="Input" Wire="w34" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" Hotspot="0 0.5" Bounds="0 33 18 18" />
+                    <Terminal Id="SequenceOut" Direction="Output" Wire="w37" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" Hotspot="1 0.5" Bounds="83 33 18 18" />
+                </ConfigurableMethodCall>
+                <Wire Id="w34" Joints="N(n6:SequenceOut) N(n35:SequenceIn)" />
+                <Wire Id="w35" Joints="N(n35:valueOut) v(51) h(2) v(-1) N(n33:Value)" />
+                <ConfigurableMethodCall Id="n36" Bounds="2254 91 101 91" Target="X3\.Lib:GlobalGetSingle">
+                    <ConfigurableMethodTerminal>
+                        <Terminal Id="valueOut" Direction="Output" Wire="w38" DataType="Single" Hotspot="0.5 1" Bounds="54 56 30 27" />
+                    </ConfigurableMethodTerminal>
+                    <ConfigurableMethodTerminal ConfiguredValue="OFDLACC_E2last">
+                        <Terminal Id="name" Direction="Input" DataType="String" Hotspot="0.5 1" Bounds="0 0 0 0" />
+                    </ConfigurableMethodTerminal>
+                    <Terminal Id="SequenceIn" Direction="Input" Wire="w37" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" Hotspot="0 0.5" Bounds="0 33 18 18" />
+                    <Terminal Id="SequenceOut" Direction="Output" Wire="w41" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" Hotspot="1 0.5" Bounds="83 33 18 18" />
+                </ConfigurableMethodCall>
+                <Wire Id="w37" Joints="N(n35:SequenceOut) N(n36:SequenceIn)" />
+                <Wire Id="w38" Joints="N(n36:valueOut) v(50) N(n34:Value)" />
+                <DataAccessor DataItem="negative" Id="n40" Bounds="2597 210 77 14">
+                    <Terminal Id="Numeric" Direction="Input" Wire="w43" Hotspot="0 0.5" Bounds="0 0 77 14" />
+                </DataAccessor>
+                <ConfigurableMethodCall Id="n18" Bounds="2471 91 101 91" Target="X3\.Lib:GlobalGetBoolean">
+                    <ConfigurableMethodTerminal>
+                        <Terminal Id="valueOut" Direction="Output" Wire="w43" DataType="Boolean" Hotspot="0.5 1" Bounds="54 56 30 27" />
+                    </ConfigurableMethodTerminal>
+                    <ConfigurableMethodTerminal ConfiguredValue="OFDLACC_NegIn">
+                        <Terminal Id="name" Direction="Input" DataType="String" Hotspot="0.5 1" Bounds="0 0 0 0" />
+                    </ConfigurableMethodTerminal>
+                    <Terminal Id="SequenceIn" Direction="Input" Wire="w41" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" Hotspot="0 0.5" Bounds="0 33 18 18" />
+                    <Terminal Id="SequenceOut" Direction="Output" Wire="w42" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" Hotspot="1 0.5" Bounds="83 33 18 18" />
+                </ConfigurableMethodCall>
+                <Wire Id="w41" Joints="N(n36:SequenceOut) N(n18:SequenceIn)" />
+                <Wire Id="w42" Joints="N(n18:SequenceOut) N(n22:Value)" />
+                <Wire Id="w43" Joints="N(n18:valueOut) v(43) N(n40:Numeric)" />
+            </BlockDiagram>
+            <Icon>
+                <Model:IconPanel xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:Model="clr-namespace:NationalInstruments.LabVIEW.VI.Design;assembly=NationalInstruments.LabVIEW.VI.SourceModel" xmlns:fpruntime="clr-namespace:NationalInstruments.LabVIEW.FrontPanelRuntime;assembly=NationalInstruments.LabVIEW.FrontPanelRuntime" xmlns:ation="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Height="154" Width="56">
+                    <fpruntime:AnimationProperties.Animations>
+                        <fpruntime:AnimationsContainer />
+                    </fpruntime:AnimationProperties.Animations>
+                    <fpruntime:EventProperties.Events>
+                        <fpruntime:EventContainer />
+                    </fpruntime:EventProperties.Events>
+                    <Model:IconPanel.Background>
+                        <ation:LinearGradientBrush StartPoint="0.5, 0" EndPoint="0.5, 1">
+                            <ation:LinearGradientBrush.Transform>
+                                <ation:MatrixTransform />
+                            </ation:LinearGradientBrush.Transform>
+                            <ation:LinearGradientBrush.RelativeTransform>
+                                <ation:MatrixTransform />
+                            </ation:LinearGradientBrush.RelativeTransform>
+                            <ation:GradientStop Color="#FFF6F5C6" />
+                            <ation:GradientStop Color="#FFFFFFFE" Offset="0.25" />
+                            <ation:GradientStop Color="#FFF6F5C6" Offset="1" />
+                        </ation:LinearGradientBrush>
+                    </Model:IconPanel.Background>
+                    <ation:Rectangle x:Name="Template" Width="NaN" Height="NaN" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0, 13, 0, 0" ation:Grid.Row="0" ation:Grid.Column="0" ation:Grid.RowSpan="1" ation:Grid.ColumnSpan="1" Fill="#00FFFFFF" Stroke="#FF000000" StrokeThickness="1" RadiusX="0" RadiusY="0">
+                        <fpruntime:AnimationProperties.Animations>
+                            <fpruntime:AnimationsContainer />
+                        </fpruntime:AnimationProperties.Animations>
+                        <fpruntime:EventProperties.Events>
+                            <fpruntime:EventContainer />
+                        </fpruntime:EventProperties.Events>
+                    </ation:Rectangle>
+                    <ation:Rectangle x:Name="Template2" Width="NaN" Height="14" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0" ation:Grid.Row="0" ation:Grid.Column="0" ation:Grid.RowSpan="1" ation:Grid.ColumnSpan="1" Stroke="#FF000000" StrokeThickness="1" RadiusX="0" RadiusY="0">
+                        <fpruntime:AnimationProperties.Animations>
+                            <fpruntime:AnimationsContainer />
+                        </fpruntime:AnimationProperties.Animations>
+                        <fpruntime:EventProperties.Events>
+                            <fpruntime:EventContainer />
+                        </fpruntime:EventProperties.Events>
+                        <ation:Rectangle.Fill>
+                            <ation:LinearGradientBrush StartPoint="0.5, 0" EndPoint="0.5, 1">
+                                <ation:LinearGradientBrush.Transform>
+                                    <ation:MatrixTransform />
+                                </ation:LinearGradientBrush.Transform>
+                                <ation:LinearGradientBrush.RelativeTransform>
+                                    <ation:MatrixTransform />
+                                </ation:LinearGradientBrush.RelativeTransform>
+                                <ation:GradientStop Color="#FFFFFFFF" />
+                                <ation:GradientStop Color="#FFD5EAEA" Offset="1" />
+                            </ation:LinearGradientBrush>
+                        </ation:Rectangle.Fill>
+                    </ation:Rectangle>
+                    <ation:TextBlock x:Name="Template3" Width="NaN" Height="NaN" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0, -0.100000001490116, 0, 0" ation:Grid.Row="0" ation:Grid.Column="0" ation:Grid.RowSpan="1" ation:Grid.ColumnSpan="1" Text="SubVI" FontFamily="Portable User Interface" FontSize="10" FontWeight="Normal" Foreground="#FF000000">
+                        <fpruntime:AnimationProperties.Animations>
+                            <fpruntime:AnimationsContainer />
+                        </fpruntime:AnimationProperties.Animations>
+                        <fpruntime:EventProperties.Events>
+                            <fpruntime:EventContainer />
+                        </fpruntime:EventProperties.Events>
+                        <fpruntime:BuddyReferenceProperties.BuddyProperties>
+                            <fpruntime:BuddyProperties />
+                        </fpruntime:BuddyReferenceProperties.BuddyProperties>
+                    </ation:TextBlock>
+                    <ation:TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="13.9716634750366, 34.3016638755798, 0, 0">
+                        <fpruntime:AnimationProperties.Animations>
+                            <fpruntime:AnimationsContainer />
+                        </fpruntime:AnimationProperties.Animations>
+                        <fpruntime:EventProperties.Events>
+                            <fpruntime:EventContainer />
+                        </fpruntime:EventProperties.Events>
+                        <ation:TextBlock.Text>
+                            <String xml:space="preserve" xmlns="clr-namespace:System;assembly=mscorlib">Read
+
+ACC
+
+Conf</String>
+                        </ation:TextBlock.Text>
+                        <fpruntime:BuddyReferenceProperties.BuddyProperties>
+                            <fpruntime:BuddyProperties />
+                        </fpruntime:BuddyReferenceProperties.BuddyProperties>
+                    </ation:TextBlock>
+                </Model:IconPanel>
+            </Icon>
+        </VirtualInstrument>
+    </Namespace>
+</SourceFile>
