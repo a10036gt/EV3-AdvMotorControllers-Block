@@ -13,6 +13,6 @@ So we have developed 5 movement blocks for the WRO Regular (Of course FLL、RCJ 
 They are “PD Controller”, “Synchronous Movement Controller”, and “Acceleration-Deceleration Controller” 😍
 Due to working at a lower level than my blocks, so the program is more fast and accurate.😁
 
-使用說明：https://www.ofdl.nctu.me/ev3-hack/adv-motor-controllers-block/
+使用說明：https://ofdl.tw/ev3-hack/adv-motor-controllers-block/
 
-User Guide：https://www.ofdl.nctu.me/en/ev3-hacking/advanced-motor-controllers-block/
+User Guide：https://ofdl.tw/en/ev3-hacking/advanced-motor-controllers-block/
