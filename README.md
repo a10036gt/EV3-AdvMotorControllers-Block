@@ -1,7 +1,7 @@
 # EV3-AdvMotorControllers-Block
 ![](https://i2.wp.com/www.ofdl.nctu.me/wp-content/uploads/2020/07/EV3_AdvMotorCtrl.jpg?w=592&ssl=1)
 
-You can download ev3b file to import this block：[Release Page](https://github.com/a10036gt/EV3-AdvMotorControllers-Block/releases)
+You can download ev3b file to import this block：[Latest Release](https://github.com/a10036gt/EV3-AdvMotorControllers-Block/releases)
 
 What’s EV3-AdvMotorControllers-Block？
 
